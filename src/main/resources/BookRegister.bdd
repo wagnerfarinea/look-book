@@ -12,3 +12,7 @@ Scenario: Validate a null or empty book title
     When I leave null or empty
     Then I should get a required field exception
 
+Scenario: Validate book title with less than 3 characters
+    Given A new title
+    When I inform a title with less than 3 characters
+    Then I should get a invalid size field exception
