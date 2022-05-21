@@ -7,3 +7,8 @@ Scenario: Create a valid book
     When I inform a new title with pages and authors
     Then I must get a new valid book
 
+Scenario: Validate a null or empty book title
+    Given A new title
+    When I leave null or empty
+    Then I should get a required field exception
+
