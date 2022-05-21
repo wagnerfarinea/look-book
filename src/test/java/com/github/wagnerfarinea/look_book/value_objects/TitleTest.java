@@ -12,7 +12,7 @@ class TitleTest {
 
     @ParameterizedTest
     @DisplayName("Successful Scenario - Must be create a title")
-    @ValueSource(strings = {"Clean Code","1001 Books You Must Read Before You Die"})
+    @ValueSource(strings = {"Eva","Clean Code","1001 Books You Must Read Before You Die"})
     void mustCreateTitle(String text) {
         Title title = new Title(text);
         Assertions.assertEquals(text, title.getText());
