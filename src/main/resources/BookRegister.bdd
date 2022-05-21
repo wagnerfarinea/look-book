@@ -1,3 +1,9 @@
 AS A reader
 I WANT to register my read books
 SO THAT I can get measure my read performance
+
+Scenario: Create a valid book
+    Given I am a reader user
+    When I inform a new title with pages and authors
+    Then I must get a new valid book
+
