@@ -1,5 +1,6 @@
 package com.github.wagnerfarinea.look_book.value_objects;
 
+import com.github.wagnerfarinea.look_book.exceptions.InvalidFieldSizeException;
 import com.github.wagnerfarinea.look_book.exceptions.RequiredFieldException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -23,5 +24,12 @@ class TitleTest {
     @NullSource
     void mustThrowRequiredException(String text) {
         Assertions.assertThrows(RequiredFieldException.class, () -> new Title(text));
+    }
+
+    @ParameterizedTest
+    @DisplayName("Failed  Scenario - An a exception should be thrown when title is less then 3 characters")
+    @ValueSource(strings = {"C","Cl"})
+    void mustThrowInvalidSizeException(String text) {
+        Assertions.assertThrows(InvalidFieldSizeException.class, () -> new Title(text));
     }
 }
